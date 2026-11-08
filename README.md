@@ -23,3 +23,11 @@ First separate the point cloud into ground returns (Class 2) and vegetation retu
 - **Midstory** (2-15m): 198,085 points (14.8%)
 - **Canopy** (>15m): 914,865 points (64.8%)
 - This distribution is consistent with a mature Australian forest, where the canopy layer dominates the point cloud, with substantial understory and midstory regeneration.
+
+# Step 4: Canopy Gap Detection
+- To detect canopy gaps in ALS data we use a spatial proximity query. For every understory point, we query whether any canopy points exist within a 4 metre horizontal radius. We then build a KDTree from the canopy points' X, Y coordinates, then query it using the understory points' X and Y coordinates. If an understory point returns zero canopy neighbors within the 4m radius, it indicates that there is no canopy cover directly above that location. These understory points represent the physical boundaries of canopy gaps on the forest floor.
+
+### Results
+- **Total Understory Points** 224,698
+- **Gap Boundary Points** 12,692 (5.6%)
+- This 5.6% canopy gap coverage is ecologically consistent with a mature Australian rainforest, where canopy gaps are scattered but not dominant. 
