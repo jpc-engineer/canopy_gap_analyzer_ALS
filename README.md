@@ -15,6 +15,7 @@ Using a KDTree, we successfully matched every vegetation point to its nearest gr
 - **Max height**: 60.5m (consistent with tall Australian rainforests)
 - **Mean height**: 18.7m (Realistic average canopy height)
 - **Min height**: -1.5m (Minor negative values are expected due to micro-terrain dips)
+  
 The resulting veg_normalized.npy array now contains true Height above ground (HAG) values, ready for strata filtering.
 
 # Step 3: Strata Filtering (Normalized Heights)
@@ -24,6 +25,7 @@ Using the Height above ground normalized vegetation data, we applied vertical st
 - **Understory** (0-2m): 224,698 points (16.8%)
 - **Midstory** (2-15m): 198,085 points (14.8%)
 - **Canopy** (>15m): 914,865 points (64.8%)
+
 This distribution is consistent with a mature Australian forest, where the canopy layer dominates the point cloud, with substantial understory and midstory regeneration. See color mapped layers below
 
 ![Strata Layers](images/result_cloud_side.png)
@@ -34,6 +36,8 @@ To detect canopy gaps in ALS data we use a spatial proximity query. For every un
 ### Results
 - **Total Understory Points** 224,698
 - **Gap Boundary Points** 20,690 (9.2%)
+
+
 This 9.2% canopy gap coverage is ecologically consistent with a mature Australian rainforest, where canopy gaps are scattered but not dominant. 
 
 # Step 5: 3D Visualization & Validation
@@ -45,6 +49,7 @@ The final step integrates all processed data layers into an interactive 3D visua
 - **Midstory vegetation** (2-15m, medium green)
 - **Canopy vegetation** (>15m, dark green)
 - **Detected canopy gap boundaries** (red/yellow highlights)
+
 Visual inspection confirms that the red gap boundary points locally cluster in areas of sparse or missing canopy cover, validating the spatial proximity query. See results below
 
 ![Bonang State Forest Result](images/result_cloud.png)
