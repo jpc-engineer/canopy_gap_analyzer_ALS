@@ -54,3 +54,14 @@ Visual inspection confirms that the red gap boundary points locally cluster in a
 
 ![Bonang State Forest Result](images/result_cloud.png)
 ![Bonang State Forest](images/result_cloud_top.png)
+
+# Step 6: Gap Metrics
+Finally we calculate the physical area (in square meters) of detected canopy gaps using a convex hull algorithm. The convex hull algorithm computes the smallest convex polygon that encloses all gap boundary points, giving an estimate of the total gap area.
+
+### Results
+- **Total Gap Boundary Points**: 26,859
+- **Calculated Gap Area**: 1,878.23 m²
+- **Total Plot Area Analyzed**: 249,999.00 m² (25 hectares)
+- **Gap Coverage**: 0.75% of the total plot area
+
+
