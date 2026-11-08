@@ -14,3 +14,12 @@ First separate the point cloud into ground returns (Class 2) and vegetation retu
 - **Mean height**: 18.7m (Realistic average canopy height)
 - **Min height**: -1.5m (Minor negative values are expected due to micro-terrain dips)
 - The resulting veg_normalized.npy array now contains true Height above ground (HAG) values, ready for strata filtering.
+
+# Step 3: Strata Filtering (Normalized Heights)
+- Using the Height above ground normalized vegetation data, we applied vertical strata filtering.
+  
+### Results
+- **Understory** (0-2m): 224,698 points (16.8%)
+- **Midstory** (2-15m): 198,085 points (14.8%)
+- **Canopy** (>15m): 914,865 points (64.8%)
+- This distribution is consistent with a mature Australian forest, where the canopy layer dominates the point cloud, with substantial understory and midstory regeneration.
