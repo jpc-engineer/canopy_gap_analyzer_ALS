@@ -24,15 +24,17 @@ Using the Height above ground normalized vegetation data, we applied vertical st
 - **Understory** (0-2m): 224,698 points (16.8%)
 - **Midstory** (2-15m): 198,085 points (14.8%)
 - **Canopy** (>15m): 914,865 points (64.8%)
-- This distribution is consistent with a mature Australian forest, where the canopy layer dominates the point cloud, with substantial understory and midstory regeneration.
+- This distribution is consistent with a mature Australian forest, where the canopy layer dominates the point cloud, with substantial understory and midstory regeneration. See color mapped layers below
+
+![Strata Layers](images/result_cloud_side.png)
 
 # Step 4: Canopy Gap Detection
-To detect canopy gaps in ALS data we use a spatial proximity query. For every understory point, we query whether any canopy points exist within a 4 metre horizontal radius. We then build a KDTree from the canopy points' X, Y coordinates, then query it using the understory points' X and Y coordinates. If an understory point returns zero canopy neighbors within the 4m radius, it indicates that there is no canopy cover directly above that location. These understory points represent the physical boundaries of canopy gaps on the forest floor.
+To detect canopy gaps in ALS data we use a spatial proximity query. For every understory point, we query whether any canopy points exist within a 2.5 metre horizontal radius. We then build a KDTree from the canopy points' X, Y coordinates, then query it using the understory points' X and Y coordinates. If an understory point returns zero canopy neighbors within the 4m radius, it indicates that there is no canopy cover directly above that location. These understory points represent the physical boundaries of canopy gaps on the forest floor.
 
 ### Results
 - **Total Understory Points** 224,698
-- **Gap Boundary Points** 12,692 (5.6%)
-This 5.6% canopy gap coverage is ecologically consistent with a mature Australian rainforest, where canopy gaps are scattered but not dominant. 
+- **Gap Boundary Points** 20,690 (9.2%)
+This 9.2% canopy gap coverage is ecologically consistent with a mature Australian rainforest, where canopy gaps are scattered but not dominant. 
 
 # Step 5: 3D Visualization & Validation
 The final step integrates all processed data layers into an interactive 3D visualization using PyVista.
@@ -43,4 +45,7 @@ The final step integrates all processed data layers into an interactive 3D visua
 - **Midstory vegetation** (2-15m, medium green)
 - **Canopy vegetation** (>15m, dark green)
 - **Detected canopy gap boundaries** (red/yellow highlights)
-Visual inspection confirms that the red gap boundary points locally cluster in areas of sparse or missing canopy cover, validating the spatial proximity query.
+Visual inspection confirms that the red gap boundary points locally cluster in areas of sparse or missing canopy cover, validating the spatial proximity query. See results below
+
+![Bonang State Forest Result](images/result_cloud.png)
+![Bonang State Forest](images/result_cloud_top.png)
