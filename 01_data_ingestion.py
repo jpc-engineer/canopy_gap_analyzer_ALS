@@ -30,5 +30,5 @@ print(f"Saved {points_matrix.shape[0]} points with {points_matrix.shape[1]} feat
 print(f"First 5 points (X, Y, Z, Classification):\n", points_matrix[:5])
 
 # Quick viz
-# cl = pv.PolyData(points_matrix)
-# cl.plot(render_points_as_spheres=True, point_size=6)
+#cl = pv.PolyData(las.xyz)
+#cl.plot(render_points_as_spheres=True, point_size=6)
