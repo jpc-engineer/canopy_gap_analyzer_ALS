@@ -31,3 +31,11 @@ First separate the point cloud into ground returns (Class 2) and vegetation retu
 - **Total Understory Points** 224,698
 - **Gap Boundary Points** 12,692 (5.6%)
 - This 5.6% canopy gap coverage is ecologically consistent with a mature Australian rainforest, where canopy gaps are scattered but not dominant. 
+
+# Step 5: 3D Visualization & Validation
+- The final step integrates all processed data layers into an interactive 3D visualization using PyVista. The scene displays:
+- **Normalized ground** (flat terrain at Z=0)
+- **Understory vegetation** (0-2m, light green)
+- **Midstory vegetation** (2-15m, medium green)
+- **Canopy vegetation** (>15m, dark green)
+- **Detected canopy gap boundaries** (red/yellow highlights)
