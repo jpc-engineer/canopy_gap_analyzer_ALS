@@ -19,5 +19,5 @@ gaps = understory_pts[gap_mask]
 
 print(f"Found {np.sum(gap_mask)} understory points located in gaps")
 
-np.save("data/gap_boundary_points.npy", gaps)
+#np.save("data/gap_boundary_points.npy", gaps)
 print(f"Saved {gaps.shape[0]} gap boundary points with {gaps.shape[1]} features")
